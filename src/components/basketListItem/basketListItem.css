@@ -33,9 +33,11 @@
         margin: 5px;
     }
     .basket-name{
-        padding: 0px 10px
+        padding: 0px 10px;
+        min-width: 10%;
     }
     .basket-qtty{
         font-size: 16px;
+        min-width: 85px;
     }
 }
