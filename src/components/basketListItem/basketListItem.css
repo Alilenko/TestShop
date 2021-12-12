@@ -15,8 +15,9 @@
     font-size: 18px;
     font-weight: 700;
     min-width: 52px;
-    color: rgb(50, 128, 247);
+    color: rgb(50, 128, 247); 
 }
+
 .basket-qtty button{
     background-color: #fff;
     border: none;
