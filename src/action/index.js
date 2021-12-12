@@ -37,8 +37,4 @@ export const changeSearch = (e) => ({
     type: 'CHANGE_SEARCH',
     payload: e
 })
-export const changeOrderQtty = (id) => ({
-    type: 'CHANGE_ORDER_QTTY',
-    payload: id
-})
 
