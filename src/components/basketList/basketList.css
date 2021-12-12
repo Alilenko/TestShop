@@ -1,3 +1,6 @@
+.basket-item{
+    padding: 10px 5px;
+}
 .basket{
     position: fixed;
     background-color: rgba(0, 0, 0, 0.39);
@@ -25,4 +28,5 @@
     .basket-body{
         min-width: 90%;
     }
+
 }

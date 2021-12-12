@@ -28,3 +28,14 @@
     min-width: 50%;
 
 }
+@media(max-width: 767px){
+    .basket-item{
+        margin: 5px;
+    }
+    .basket-name{
+        padding: 0px 10px
+    }
+    .basket-qtty{
+        font-size: 16px;
+    }
+}
