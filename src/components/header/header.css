@@ -1,0 +1,15 @@
+.header{
+   display: flex;
+   max-width: 1200px;
+   margin: 0 auto;
+   justify-content: space-around;
+}
+.logo{
+    font-size: 36px;
+}
+.header-search input{
+    max-width: 300px;
+    background-color: white;
+    padding: 0 30px;
+
+}
