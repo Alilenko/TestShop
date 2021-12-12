@@ -22,7 +22,7 @@ const Header = () => {
                 
                 value={search} 
                 onChange={(e) => searchChange(e)} 
-                placeholder="Search Products Here....." 
+                placeholder="Search.. " 
                 />
             </form>
             </div>

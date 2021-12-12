@@ -11,5 +11,9 @@
     max-width: 300px;
     background-color: white;
     padding: 0 30px;
-
+}
+@media(max-width:767px){
+    .header-search input{
+        max-width: 150px;
+    }
 }
