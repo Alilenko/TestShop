@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {addToBasket, changeQtty, changeTotalPrice} from '../../action'
 import './goodsItem.css';
@@ -8,6 +8,7 @@ import { useSelector, useDispatch} from 'react-redux';
 const GoogsItem = (props) => {
   const {goods, order, loading} = useSelector(state => state);
   const dispatch = useDispatch();
+  const [qttyLocal, setQttyLocal]= useState(1)
 
 
     const {mainId, displayName, displayDescription, displayAssets, price } = props
@@ -15,13 +16,13 @@ const GoogsItem = (props) => {
         return null
     }
     const addToBasketClick = (mainId) => {
-      const exist = order.find((elem) => elem.mainId === mainId)
+     /* const exist = order.find((elem) => elem.mainId === mainId)
 
       if(exist){
           
-      } else{
+      } else{*/
       const ord = goods.filter(item => item.mainId === mainId)
-
+/*
       const newOrder = {
       mainId: ord[0].mainId,
       displayName: ord[0].displayName,
@@ -29,12 +30,15 @@ const GoogsItem = (props) => {
       displayAssets: ord[0].displayAssets[0].url,
       price: ord[0].price.finalPrice,
       qtty: 1
-      }
-      dispatch(addToBasket(newOrder))
-      dispatch(changeQtty(1))
+      }*/
+      
+      setQttyLocal(qttyLocal + 1)
+      console.log(qttyLocal);
+      dispatch(addToBasket(mainId))
+      dispatch(changeQtty(qttyLocal))
       dispatch(changeTotalPrice(ord[0].price.finalPrice))
     }
-    }
+    
 
 
     return (

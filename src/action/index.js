@@ -37,4 +37,8 @@ export const changeSearch = (e) => ({
     type: 'CHANGE_SEARCH',
     payload: e
 })
+export const deleteQtty = (id) => ({
+    type: 'DELETE_FRON_BACKET_QTTY',
+    payload: id
+})
 

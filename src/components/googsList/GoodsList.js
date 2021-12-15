@@ -6,8 +6,9 @@ import Spinner from '../spinner/Spinner';
 
 const GoodsList = () => {
     const {goods, search} = useSelector(state => state);
+    const searchLower = search.toLowerCase()
 
-    const searchGoods = goods.filter((item) => item.displayName.toLowerCase().includes([search]))
+    const searchGoods = goods.filter((item) => item.displayName.toLowerCase().includes([searchLower]))
 
 
     const element = searchGoods.map(item => {

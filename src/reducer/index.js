@@ -25,17 +25,68 @@ const reducer = (state = initialState, action) => {
                loading: false
            }
         case 'ADD_TO_BASKET':
+            
+            const itemInd = state.order.findIndex(item => item.mainId === action.payload);
+            if (itemInd>= 0){
+                const itemState = state.order.find(items => items.mainId === action.payload);
+                const editItem = {
+                    ...itemState,
+                    qtty: ++itemState.qtty
+                }
+                return{
+                    ...state,
+                    order: [
+                        ...state.order.slice(0, itemInd),
+                        editItem,
+                        ...state.order.slice(itemInd + 1)
+                    ]
+                    
+                }
+            } 
+            const item = state.goods.find(item => item.mainId === action.payload);
+            const newItem = {
+                mainId: item.mainId,
+                displayName: item.displayName,
+                displayDescription: item.displayDescription,
+                displayAssets: item.displayAssets[0].url,
+                price: item.price.finalPrice,
+                qtty: 1
+            };
                 return {
                     ...state, 
-                    order: [...state.order, action.payload],
+                    order: [...state.order, newItem]
                 }
-
+            
         case 'DELETE_FROM_BASKET':
-            const delItem = state.order.findIndex((item) => item.id === action.payload)
-               
+            const delItem = state.order.findIndex((item) => item.mainId === action.payload)
+
             return {
                 ...state,
-               order: [...state.order.slice(0, delItem), ...state.order.slice(delItem + 1)]
+               order: [
+                   ...state.order.slice(0, delItem),
+                   ...state.order.slice(delItem + 1)]
+               
+            }
+        case 'DELETE_FRON_BACKET_QTTY':
+            const delIndx = state.order.findIndex(item => item.mainId === action.payload);
+            if (delIndx>= 0){
+                const itemDelState = state.order.find(item => item.mainId === action.payload);
+                const deleteItem = {
+                    ...itemDelState,    
+                    qtty: --itemDelState.qtty 
+                }
+                return{
+                    ...state,
+                    order: [
+                        ...state.order.slice(0, delIndx),
+                        deleteItem,
+                        ...state.order.slice(delIndx + 1)
+                    ]
+                    
+                }
+            }
+            return {
+                ...state
             }
         case 'CHANGE_TOTAL_PRICE':
             const newPrice = Number(state.totalPrice) + Number(action.payload)
@@ -44,6 +95,12 @@ const reducer = (state = initialState, action) => {
                 totalPrice: newPrice
             }
         case 'CHANGE_QTTY':
+            if(action.payload === 0){
+                return {
+                    ...state,
+                    qtty: 0
+                }
+            }
             const newQtty = Number(state.qtty) + Number(action.payload)
             return {
                 ...state,
