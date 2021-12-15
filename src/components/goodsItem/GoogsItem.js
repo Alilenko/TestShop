@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {connect} from 'react-redux';
-import {addToBasket, changeQtty, changeTotalPrice} from '../../action'
+import {addToBasket, changeQtty, changeTotalPrice, changePopup} from '../../action'
 import './goodsItem.css';
 import { useSelector, useDispatch} from 'react-redux';
+import Spinner from '../spinner/Spinner';
 
 
 const GoogsItem = (props) => {
-  const {goods, order, loading} = useSelector(state => state);
+  const {goods, loading} = useSelector(state => state);
   const dispatch = useDispatch();
   const [qttyLocal, setQttyLocal]= useState(1)
 
@@ -16,33 +16,19 @@ const GoogsItem = (props) => {
         return null
     }
     const addToBasketClick = (mainId) => {
-     /* const exist = order.find((elem) => elem.mainId === mainId)
 
-      if(exist){
-          
-      } else{*/
       const ord = goods.filter(item => item.mainId === mainId)
-/*
-      const newOrder = {
-      mainId: ord[0].mainId,
-      displayName: ord[0].displayName,
-      displayDescription: ord[0].displayDescription,
-      displayAssets: ord[0].displayAssets[0].url,
-      price: ord[0].price.finalPrice,
-      qtty: 1
-      }*/
-      
       setQttyLocal(qttyLocal + 1)
-      console.log(qttyLocal);
       dispatch(addToBasket(mainId))
       dispatch(changeQtty(qttyLocal))
       dispatch(changeTotalPrice(ord[0].price.finalPrice))
+      dispatch(changePopup(true))
     }
     
-
+ 
 
     return (
-        
+     
           <div className="card ">
             
             <div className="card-image">
@@ -53,14 +39,13 @@ const GoogsItem = (props) => {
               <div className='card-descr'>{displayDescription }</div>
               <div className='card-footer'>
               <p className='card-price'>{price.finalPrice} UAN</p>
-              <button onClick={(e) => {e.preventDefault(); addToBasketClick(mainId)}} className='btn blue darken-4'>Купить</button>
+              <button onClick={(e) => {e.preventDefault(); addToBasketClick(mainId)}} className='btn blue darken-4 card-button'>Купить</button>
               </div>
             </div>
            
           </div>
-      
+     
     )
 }
-
 
 export default GoogsItem;

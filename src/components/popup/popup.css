@@ -1,0 +1,15 @@
+.popup{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: cornflowerblue;
+    color: #fff;
+    padding: 10px 20px;
+    transition: all .5s ease;
+}
+@media(max-width: 767px){
+    .popup{
+        right: 50%;
+        
+    }
+}

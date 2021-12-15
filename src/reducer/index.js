@@ -7,7 +7,8 @@ const initialState = {
     qtty: 0,
     totalPrice: 0,
     basketShow: false,
-    search: null
+    search: null,
+    popup: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -115,6 +116,11 @@ const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 search: action.payload
+            }
+        case 'CHANGE_POPUP':
+            return{
+                ...state,
+                popup: action.payload
             }
        default:
         return state

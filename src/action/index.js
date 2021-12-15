@@ -41,4 +41,9 @@ export const deleteQtty = (id) => ({
     type: 'DELETE_FRON_BACKET_QTTY',
     payload: id
 })
+export const changePopup = (e) => ({
+    type: 'CHANGE_POPUP',
+    payload: e
+
+})
 
