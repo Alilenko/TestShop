@@ -21,23 +21,41 @@
 .basket-qtty button{
     background-color: #fff;
     border: none;
+    
 }
 .basket-name{
-    padding: 0px 20px;
+    
     font-size: 16px;
-    min-width: 50%;
-
+    min-width: 150px;
+    flex-grow: 1;
+    
+}
+.basket_sum{
+    width: 100px;
 }
 @media(max-width: 767px){
     .basket-item{
         margin: 5px;
     }
-    .basket-name{
-        padding: 0px 10px;
-        min-width: 10%;
+    .basket-name{ 
     }
     .basket-qtty{
         font-size: 16px;
         min-width: 85px;
     }
 }
+@media(max-width: 420px){
+    .basket-item {
+        margin: 5px;
+        padding: 5px;
+    }
+    .basket-name{
+        font-size: 14px;
+        min-width: 100px;
+    }
+    .basket_sum{
+        width: 60px;
+    }
+}
+
+

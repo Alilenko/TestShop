@@ -53,8 +53,8 @@ const BasketListItem = ({price, id, displayName, mainId}) => {
                 <button onClick={() => dec(id)} className='dec'>-</button>
                 {qtty}
                 <button onClick={() => inc(mainId)} className='inc'>+</button></div>
-                
-           {price}x{qtty} {sum}<i onClick={() => onDelete(id)} className="material-icons icons-close">close</i></div>
+                <div className='basket_sum'>{price}x{qtty} {sum}</div>
+           <i onClick={() => onDelete(id)} className="material-icons icons-close">close</i></div>
         
         </div>
     )

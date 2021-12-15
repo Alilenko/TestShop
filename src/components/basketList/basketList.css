@@ -24,9 +24,15 @@
     z-index: 3;
     cursor: pointer;
 }
-@media(max-width: 767px){
+@media(max-width: 920px){
     .basket-body{
         min-width: 90%;
     }
+}
+@media(max-width: 420px){
 
+
+    .basket-body{
+        padding: 5px;
+    }
 }
